@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shaun D. Jones | Learning Design, Analytics, and Education Strategy</title>
+<meta name="description" content="Portfolio of Shaun D. Jones: learning strategy, instructional design, e-learning development, and learning analytics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Schibsted+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f2f5f8;
+  --surface: #ffffff;
+  --ink: #16212c;
+  --ink-soft: #46586a;
+  --blue: #1f4e79;
+  --blue-deep: #143553;
+  --blue-wash: #dce7f1;
+  --rule: #c5d3e0;
+  --gold: #b7791f;
+  --gold-wash: #f6e7c8;
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --text: "Literata", Georgia, "Times New Roman", serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+a { color: var(--blue); text-underline-offset: 3px; }
+a:hover { color: var(--blue-deep); }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+.wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Navigation */
+.nav { position: sticky; top: 0; z-index: 10; background: var(--blue-deep); }
+.nav .wrap { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; align-items: center; padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.nav strong { font-family: var(--display); color: #fff; font-weight: 800; margin-right: auto; letter-spacing: 0.01em; }
+.nav a { font-family: var(--display); font-weight: 500; font-size: 0.95rem; color: #dbe7f2; text-decoration: none; padding: 0.15rem 0; border-bottom: 2px solid transparent; }
+.nav a:hover { color: #fff; border-bottom-color: var(--gold); }
+
+/* Hero */
+.hero { padding: 4.5rem 0 4rem; border-bottom: 1px solid var(--rule); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 3.5rem; align-items: start; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.025em; margin: 0 0 1.25rem; color: var(--blue-deep); }
+.role { font-family: var(--display); font-weight: 700; font-size: 1.3rem; margin: 0 0 1.25rem; color: var(--ink); }
+.lede { font-size: 1.15rem; max-width: 38rem; margin: 0 0 1.5rem; }
+.contact { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-family: var(--display); font-weight: 500; margin: 0; padding: 0; list-style: none; }
+
+/* Health score instrument */
+.instrument { background: var(--surface); border: 2px solid var(--blue); border-radius: 6px; padding: 1.4rem 1.4rem 1.2rem; }
+.instrument h2 { font-family: var(--display); font-size: 1.15rem; margin: 0 0 0.35rem; color: var(--blue-deep); border: 0; padding: 0; }
+.instrument p.note { font-size: 0.9rem; color: var(--ink-soft); margin: 0 0 1rem; line-height: 1.5; }
+.slider-row { display: grid; grid-template-columns: 1fr auto; gap: 0.1rem 0.75rem; margin-bottom: 0.7rem; font-family: var(--display); font-size: 0.95rem; }
+.slider-row label { font-weight: 500; }
+.slider-row .wt { color: var(--ink-soft); font-weight: 500; }
+.slider-row output { font-weight: 700; min-width: 2.2ch; text-align: right; }
+.slider-row input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--blue); margin: 0; }
+.readout { display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--rule); margin-top: 1rem; padding-top: 0.9rem; font-family: var(--display); }
+.readout .score { font-size: 3rem; font-weight: 800; line-height: 1; color: var(--blue-deep); }
+.readout .score small { font-size: 1rem; font-weight: 500; color: var(--ink-soft); margin-left: 0.25rem; }
+.grade { font-size: 1.4rem; font-weight: 800; background: var(--gold-wash); color: #6b4410; padding: 0.15rem 0.9rem; border-radius: 4px; }
+.bands { font-family: var(--display); font-size: 0.85rem; color: var(--ink-soft); margin: 0.75rem 0 0; }
+
+/* Sections */
+section { padding: 3.75rem 0; border-bottom: 1px solid var(--rule); }
+section:last-of-type { border-bottom: 0; }
+h2 { font-family: var(--display); font-weight: 800; font-size: 2rem; line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 0.75rem; color: var(--blue-deep); }
+h3 { font-family: var(--display); font-weight: 700; font-size: 1.2rem; margin: 0 0 0.4rem; color: var(--ink); }
+.section-intro { max-width: 44rem; margin: 0 0 2rem; font-size: 1.1rem; }
+p { margin: 0 0 1rem; }
+ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+li { margin-bottom: 0.45rem; }
+.measure { max-width: 44rem; }
+
+/* By the numbers */
+.numbers { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 0; border: 1px solid var(--rule); background: var(--surface); margin: 0; }
+.numbers div { padding: 1rem 1.1rem; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-right: -1px; margin-bottom: -1px; }
+.numbers dt { font-family: var(--display); font-weight: 800; font-size: 1.55rem; color: var(--blue); line-height: 1.15; }
+.numbers dd { margin: 0.2rem 0 0; font-size: 0.92rem; color: var(--ink-soft); line-height: 1.45; }
+
+/* Case studies */
+.case { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; margin-bottom: 0.9rem; }
+.case summary { list-style: none; cursor: pointer; padding: 1.1rem 1.3rem; display: grid; grid-template-columns: 1fr auto; gap: 0.2rem 1rem; align-items: center; }
+.case summary::-webkit-details-marker { display: none; }
+.case summary h3 { margin: 0; }
+.case summary .gist { grid-column: 1; color: var(--ink-soft); font-size: 0.98rem; line-height: 1.5; }
+.case summary .when { grid-column: 2; grid-row: 1; font-family: var(--display); font-weight: 500; font-size: 0.9rem; color: var(--ink-soft); }
+.case summary::after { content: "+"; grid-column: 2; grid-row: 2; justify-self: end; font-family: var(--display); font-weight: 800; font-size: 1.5rem; line-height: 1; color: var(--blue); }
+.case[open] summary::after { content: "\2212"; }
+.case[open] summary { border-bottom: 1px solid var(--rule); }
+.case .body { padding: 1.2rem 1.3rem 0.6rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 0 2rem; }
+.case .body h4 { font-family: var(--display); font-size: 1rem; font-weight: 700; margin: 0 0 0.4rem; color: var(--blue); }
+.case .body .col { margin-bottom: 0.8rem; }
+.case .body p, .case .body li { font-size: 1rem; }
+.tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1rem; padding: 0; list-style: none; }
+.tags li { margin: 0; font-family: var(--display); font-size: 0.82rem; font-weight: 500; background: var(--blue-wash); color: var(--blue-deep); padding: 0.15rem 0.6rem; border-radius: 3px; }
+
+/* Capabilities */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 2rem 3rem; }
+.skills dt { font-family: var(--display); font-weight: 700; color: var(--blue-deep); margin-top: 1rem; }
+.skills dt:first-child { margin-top: 0; }
+.skills dd { margin: 0.15rem 0 0; }
+
+/* Experience */
+.job { display: grid; grid-template-columns: 11.5rem 1fr; gap: 0 1.75rem; padding: 1.1rem 0; border-top: 1px solid var(--rule); }
+.job:first-of-type { border-top: 2px solid var(--blue); }
+.job .dates { font-family: var(--display); font-weight: 500; font-size: 0.95rem; color: var(--ink-soft); padding-top: 0.15rem; }
+.job h3 { margin-bottom: 0.1rem; }
+.job .org { font-family: var(--display); font-weight: 700; color: var(--blue); }
+.job p { margin: 0.3rem 0 0; font-size: 1rem; }
+.group-title { font-family: var(--display); font-weight: 700; font-size: 1.1rem; margin: 2.25rem 0 0.6rem; color: var(--blue-deep); }
+.group-note { font-size: 0.95rem; color: var(--ink-soft); margin: 0 0 0.6rem; }
+
+/* Education */
+.edu { list-style: none; padding: 0; margin: 0; }
+.edu li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 0 1.25rem; padding: 0.75rem 0; border-top: 1px solid var(--rule); margin: 0; }
+.edu li:first-child { border-top: 2px solid var(--blue); }
+.edu .yr { font-family: var(--display); font-weight: 700; color: var(--blue); }
+.edu .sub { display: block; color: var(--ink-soft); font-size: 0.95rem; }
+
+
+/* Path from classroom to enterprise */
+.path { list-style: none; margin: 1rem 0 0; padding: 0; border-left: 3px solid var(--blue); }
+.path li { position: relative; margin: 0; padding: 0 0 1.15rem 1.5rem; }
+.path li::before { content: ""; position: absolute; left: -10px; top: 0.45rem; width: 15px; height: 15px; background: var(--paper); border: 3px solid var(--blue); border-radius: 50%; }
+.path li.now::before { background: var(--gold); border-color: var(--gold); }
+.path .yrs { font-family: var(--display); font-weight: 700; color: var(--blue); display: block; }
+.path .what { font-family: var(--display); font-weight: 700; display: block; }
+.path .where { color: var(--ink-soft); font-size: 0.98rem; display: block; line-height: 1.5; }
+.pull { font-family: var(--display); font-weight: 700; font-size: 1.35rem; line-height: 1.35; color: var(--blue-deep); border-left: 4px solid var(--gold); padding: 0.2rem 0 0.2rem 1.1rem; margin: 0 0 2rem; max-width: 40rem; }
+.chips { list-style: none; margin: 0.5rem 0 1.5rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chips li { margin: 0; font-family: var(--display); font-size: 0.9rem; font-weight: 500; background: var(--surface); border: 1px solid var(--rule); color: var(--ink); padding: 0.2rem 0.7rem; border-radius: 3px; }
+.cert-group { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; margin-bottom: 0.7rem; }
+.cert-group summary { list-style: none; cursor: pointer; padding: 0.9rem 1.2rem; font-family: var(--display); font-weight: 700; display: flex; justify-content: space-between; gap: 1rem; }
+.cert-group summary::-webkit-details-marker { display: none; }
+.cert-group summary::after { content: "+"; color: var(--blue); font-weight: 800; font-size: 1.3rem; line-height: 1; }
+.cert-group[open] summary::after { content: "\2212"; }
+.cert-group[open] summary { border-bottom: 1px solid var(--rule); }
+.cert-group ul { margin: 0; padding: 0.9rem 1.2rem 0.5rem 2.4rem; columns: 2 19rem; column-gap: 2rem; }
+.cert-group li { font-size: 0.98rem; break-inside: avoid; }
+.cert-group li span { color: var(--ink-soft); }
+
+/* Contact */
+.close { background: var(--blue-deep); color: #e8f0f7; padding: 3.5rem 0; }
+.close h2 { color: #fff; }
+.close a { color: #fff; }
+.close p { max-width: 38rem; }
+footer { background: var(--blue-deep); color: #a9bfd3; font-family: var(--display); font-size: 0.85rem; padding: 0 0 2rem; }
+
+@media (max-width: 52rem) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+  .job { grid-template-columns: 1fr; }
+  .job .dates { margin-bottom: 0.2rem; }
+  .nav strong { width: 100%; }
+}
+@media (max-width: 34rem) {
+  .case summary { grid-template-columns: 1fr; }
+  .case summary .when, .case summary::after { grid-column: 1; grid-row: auto; justify-self: start; }
+  .edu li { grid-template-columns: 1fr; }
+}
+@media print {
+  .nav, .instrument { display: none; }
+  body { background: #fff; font-size: 10.5pt; }
+  .case .body { display: block; }
+  .cert-group > ul { display: block; }
+  section { padding: 1.5rem 0; break-inside: avoid-page; }
+  .close, footer { background: #fff; color: var(--ink); }
+  .close h2, .close a { color: var(--blue-deep); }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <strong>Shaun D. Jones</strong>
+    <a href="#classroom">Teaching roots</a>
+    <a href="#breadth">Breadth</a>
+    <a href="#work">Selected work</a>
+    <a href="#experience">Experience</a>
+    <a href="#learning">Learning</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+    <a href="index.html">Learning record &rarr;</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Shaun D. Jones</h1>
+      <p class="role">Teacher turned learning strategist: training, instructional design, and learning analytics</p>
+      <p class="lede">I started my career as a teacher. Since then I have spent 15+ years in training and development, building learning for hospitals, airlines, restaurants, schools, and government. I design the learning, measure whether it works, and build the systems that keep it improving.</p>
+      <p class="measure">At GFOA I turned scattered course feedback into a repeatable measurement system, launched an on-demand learning line, and gave leadership dashboards they could explore on their own.</p>
+      <ul class="contact">
+        <li><a href="mailto:shaundesigner@gmail.com">shaundesigner@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/sdjoneschicago" rel="noopener">linkedin.com/in/sdjoneschicago</a></li>
+        <li>Chicago, Illinois</li>
+      </ul>
+    </div>
+
+    <aside class="instrument" aria-labelledby="hs-title">
+      <h2 id="hs-title">Try the course Health Score</h2>
+      <p class="note">This is the scoring model I built at GFOA, shown with sample inputs. Move the sliders to see how a course moves between grades. These are illustrative values, not real course data.</p>
+
+      <div class="slider-row">
+        <label for="s1">Success <span class="wt">(35%)</span></label><output id="o1" for="s1">50</output>
+        <input type="range" id="s1" min="0" max="100" value="50">
+      </div>
+      <div class="slider-row">
+        <label for="s2">Low friction <span class="wt">(25%)</span></label><output id="o2" for="s2">45</output>
+        <input type="range" id="s2" min="0" max="100" value="45">
+      </div>
+      <div class="slider-row">
+        <label for="s3">Instructor positivity <span class="wt">(20%)</span></label><output id="o3" for="s3">60</output>
+        <input type="range" id="s3" min="0" max="100" value="60">
+      </div>
+      <div class="slider-row">
+        <label for="s4">Satisfaction <span class="wt">(10%)</span></label><output id="o4" for="s4">70</output>
+        <input type="range" id="s4" min="0" max="100" value="70">
+      </div>
+      <div class="slider-row">
+        <label for="s5">Recommend <span class="wt">(10%)</span></label><output id="o5" for="s5">75</output>
+        <input type="range" id="s5" min="0" max="100" value="75">
+      </div>
+
+      <div class="readout" aria-live="polite">
+        <div class="score"><span id="score">55</span><small>out of 100</small></div>
+        <div class="grade" id="grade">B</div>
+      </div>
+      <p class="bands">Grade bands: A is 58 and above, B is 53 to 57, C is 48 to 52, D is 44 to 47, F is below 44. The first three components come from classified learner comments, so 80% of the score is qualitative.</p>
+    </aside>
+  </div>
+</header>
+
+<main>
+
+<section id="classroom" aria-labelledby="classroom-h">
+  <div class="wrap">
+    <h2 id="classroom-h">I started in the classroom</h2>
+    <p class="pull">Before I built courses for hospitals and airlines, I taught. The habits from that work still shape how I design for adults.</p>
+    <div class="grid-2">
+      <div>
+        <h3>What I did as an educator</h3>
+        <ul>
+          <li>Taught graphic design, computer applications, web design, and video editing at Lawrence Upper School, using rubric-based grading and supporting students with a range of learning needs.</li>
+          <li>Served as Technology Coordinator and Instructor at Lawrence Lower School, where I trained teachers to bring technology into their classrooms and advised on equipment support and purchasing.</li>
+          <li>Taught a one-month graphic design summer program through University Schools' REACH program.</li>
+          <li>Supported students and staff in the Technology Learning Center at Cuyahoga Community College West.</li>
+          <li>Worked with Stanford humanities fellows on classroom technology and supervised multimedia projects.</li>
+          <li>Trained families and students on computer skills with Power My Learning, alongside my consulting work.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What carried into my training and development work</h3>
+        <ul>
+          <li><strong>Clear criteria.</strong> I graded with rubrics. Today I write evaluation instruments and scoring models with the same logic.</li>
+          <li><strong>Different learners, different needs.</strong> That is where my interest in inclusive and accessible design started.</li>
+          <li><strong>Teaching the teachers.</strong> I trained teachers on technology then. Now I coach subject matter experts on writing objectives, built an onboarding plan for a new team member, and showed an outside vendor how to replicate question-level tracking.</li>
+          <li><strong>Technology in service of learning.</strong> I went from classroom tech support to authoring tools, LMS administration, and SCORM.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="group-title">The path, in order</h3>
+    <ol class="path">
+      <li><span class="yrs">2008 to 2011</span><span class="what">Classroom and school technology</span><span class="where">Lawrence Upper and Lower Schools, University Schools REACH, Cuyahoga Community College West</span></li>
+      <li><span class="yrs">2011</span><span class="what">Academic technology</span><span class="where">Stanford University</span></li>
+      <li><span class="yrs">2011 to 2016</span><span class="what">Corporate e-learning consulting</span><span class="where">Healthcare, aviation, financial services, government, and industry, from Barnes Distribution to Delta Airlines</span></li>
+      <li><span class="yrs">2012 to 2017</span><span class="what">Community training</span><span class="where">Power My Learning, teaching computer skills to families and students</span></li>
+      <li><span class="yrs">2016 to 2018</span><span class="what">In-house training and development</span><span class="where">Restaurant Brands International, Communities in Schools, and Kaiser Permanente</span></li>
+      <li><span class="yrs">2018 to 2021</span><span class="what">Business intelligence and training operations</span><span class="where">Kaiser Permanente</span></li>
+      <li><span class="yrs">2021 to 2023</span><span class="what">Learning management</span><span class="where">Amwell</span></li>
+      <li class="now"><span class="yrs">2024 to present</span><span class="what">Learning strategy and analytics</span><span class="where">Lurie Children's Hospital, Priceline, TeleTracking, and GFOA</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="breadth" aria-labelledby="breadth-h">
+  <div class="wrap">
+    <h2 id="breadth-h">Training and development, end to end</h2>
+    <p class="section-intro">I have worked on every part of the learning function: the design, the build, the delivery, the platform, the data, and the team.</p>
+
+    <h3>Formats I have designed and delivered</h3>
+    <ul class="chips">
+      <li>Self-paced e-learning (SCORM 1.2 and 2004)</li><li>Instructor-led training</li><li>Virtual instructor-led training</li><li>Facilitator guides</li><li>Video and screencast tutorials</li><li>Scenario-based modules</li><li>Software simulation training</li><li>Mobile and performance support</li><li>Job aids</li><li>Interactive HTML and scrollytelling</li><li>Onboarding programs</li><li>Compliance training</li><li>Classroom instruction</li><li>Community and family training</li>
+    </ul>
+
+    <h3>Audiences I have trained</h3>
+    <ul class="chips">
+      <li>Students and teachers</li><li>Hospital clinicians and staff</li><li>Restaurant crews and managers</li><li>Customer service representatives</li><li>Credit union tellers</li><li>Airline operations teams</li><li>Government finance professionals</li><li>Internal and external stakeholders at a telehealth company</li><li>Subject matter experts and instructors</li>
+    </ul>
+
+    <h3>Sectors</h3>
+    <ul class="chips">
+      <li>Education</li><li>Healthcare</li><li>Restaurants and hospitality</li><li>Travel and aviation</li><li>Financial services</li><li>Government and associations</li><li>Nonprofit</li><li>Engineering and industry</li><li>Distribution</li>
+    </ul>
+
+    <h3>Parts of the learning function I have owned</h3>
+    <div class="grid-2" style="margin-top:0.5rem">
+      <ul>
+        <li>Needs analysis and instructional design</li>
+        <li>E-learning development and video production</li>
+        <li>Conversion of instructor-led training to virtual and digital delivery</li>
+        <li>LMS administration, content management, and SCORM diagnostics</li>
+      </ul>
+      <ul>
+        <li>Evaluation design, learning analytics, and executive reporting</li>
+        <li>Vendor management for outsourced course development</li>
+        <li>SME coaching and team onboarding</li>
+        <li>Compliance alignment, including NASBA CPE standards</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="numbers" aria-labelledby="numbers-h">
+  <div class="wrap">
+    <h2 id="numbers-h">What the 2025 to 2026 work covered</h2>
+    <p class="section-intro">These figures come from the evaluation and learning systems I built and reported on at GFOA's Education Center.</p>
+    <dl class="numbers">
+      <div><dt>179,551</dt><dd>survey rows analyzed across 12,582 unique respondents</dd></div>
+      <div><dt>150+ courses</dt><dd>and 180+ speakers covered by the evaluation analytics</dd></div>
+      <div><dt>31,071</dt><dd>learner comments classified over 18 months</dd></div>
+      <div><dt>95.8% to 97.1%</dt><dd>year-over-year change in learner recommendation rate</dd></div>
+      <div><dt>15.6% to 43.4%</dt><dd>growth in learner preference for on-demand delivery</dd></div>
+      <div><dt>128 formats</dt><dd>of branded video catalogued in 18 collections</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <h2 id="work-h">Selected work</h2>
+    <p class="section-intro">Each project below opens to show what I built and what came out of it. Most are from my current role at GFOA, with earlier work after them.</p>
+
+    <details class="case" open>
+      <summary>
+        <h3>Learning Intelligence System and Health Score</h3>
+        <span class="when">2026</span>
+        <span class="gist">A course quality system that reads what learners write, not only the numbers they click.</span>
+      </summary>
+      <div class="body">
+        <div class="col">
+          <h4>The problem</h4>
+          <p>Single-number satisfaction scores hid why a course worked or did not. Thousands of written comments sat unread.</p>
+          <h4>What I built</h4>
+          <ul>
+            <li>A composite Health Score from 0 to 100 per course, weighted across five components, with 80% driven by comment analysis.</li>
+            <li>A 21-theme classification model (8 success themes, 13 improvement themes) that classified 99.1% of 16,620 comments across 150 courses.</li>
+            <li>Three interactive dashboards: a course-level report card, a seven-analysis insights view with drill-downs, and a sentiment trend report.</li>
+            <li>A Python quality tool that samples comments, detects keyword collisions, and produces sheets for human review.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>What came out of it</h4>
+          <ul>
+            <li>A documented Course Quality Assurance Standard, a Health Score explainer for non-technical readers, and a build runbook.</li>
+            <li>A four-tier coaching and escalation protocol for instructors, from awareness through coaching and formal review.</li>
+            <li>Recalibrated grade bands and an evidence package aligned to industry award criteria, delivered at no added software cost.</li>
+          </ul>
+        </div>
+        <ul class="tags"><li>Python</li><li>HTML dashboards</li><li>Qualitative analysis</li><li>Kirkpatrick and LTEM</li><li>Quality assurance</li></ul>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <h3>Course evaluation analytics and executive reporting</h3>
+        <span class="when">2025 to 2026</span>
+        <span class="gist">Raw LMS data turned into reports a CEO and board can read in minutes.</span>
+      </summary>
+      <div class="body">
+        <div class="col">
+          <h4>What I built</h4>
+          <ul>
+            <li>An 18-month evaluation synthesis report in 12 sections, calculated from complete datasets with no sampling.</li>
+            <li>A one-page executive summary with side-by-side 2025 and 2026 results.</li>
+            <li>An interactive Excel dashboard of Q1 2026 feedback (39,594 responses across 82 courses) with live filters and a short video walkthrough.</li>
+            <li>Evaluation instruments redesigned for on-demand, virtual, and in-person courses to meet NASBA and AICPA standards, with the survey trimmed from 11 questions to 9.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>What the data showed</h4>
+          <ul>
+            <li>Recommendation rate rose from 95.8% to 97.1%, and all five core evaluation dimensions improved.</li>
+            <li>Preference for on-demand delivery grew from 15.6% to 43.4%, the largest behavior shift in the data.</li>
+            <li>H1 2026: 3,437 respondents and a 4.49 out of 5 speaker effectiveness rating across 14,653 evaluations of 180+ instructors.</li>
+          </ul>
+        </div>
+        <ul class="tags"><li>Executive reporting</li><li>NASBA and CPE standards</li><li>Excel modeling</li><li>Likert normalization</li><li>Stakeholder communication</li></ul>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <h3>Reporting pipeline from LMS to dashboard</h3>
+        <span class="when">2025 to 2026</span>
+        <span class="gist">A repeatable data flow so quarterly reporting no longer starts from scratch.</span>
+      </summary>
+      <div class="body">
+        <div class="col">
+          <h4>What I built</h4>
+          <ul>
+            <li>Pulled survey, attendance, product, and instructor data from the Cadmium Elevate API using Postman.</li>
+            <li>Standardized field names, converted Likert scales from 0 to 4 into 1 to 5, and used a unique access ID to join complete response sets and align instructor ratings.</li>
+            <li>Documented the process with swimlane diagrams and three reusable playbooks for joining data, writing evaluation reports, and building dashboards.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Why it matters</h4>
+          <p>Anyone on the team can follow the same steps and get the same answer. It also made it possible to run SCORM diagnostics across the catalog and write troubleshooting guides covering 200+ tracking fields.</p>
+        </div>
+        <ul class="tags"><li>REST APIs</li><li>Postman</li><li>JSON joins</li><li>SCORM analytics</li><li>Process documentation</li></ul>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <h3>On-demand learning launch and SCORM development</h3>
+        <span class="when">2026</span>
+        <span class="gist">The instructional design and technical build for a new product line, including a leadership series.</span>
+      </summary>
+      <div class="body">
+        <div class="col">
+          <h4>What I built</h4>
+          <ul>
+            <li>Designed and produced the on-demand intro video, from storyboard to final, and carried it through review with Education, Resource Development, and Technical Services leadership.</li>
+            <li>Planned the exercise and review-question map for the first Leadership On-Demand course, with three video segments per module and timed question breakpoints.</li>
+            <li>Built a SCORM 2004 demo course with GFOA branding, converting a scrollytelling HTML experience into click-through navigation.</li>
+            <li>Engineered question banks in Articulate Storyline that draw 5 questions from a pool of 10 per attempt, with mandatory-question flags, aligned to NASBA self-study requirements.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Technical detail</h4>
+          <ul>
+            <li>Implemented question-level SCORM tracking, including rewatch, retake, and review interactions, and showed an outside development vendor how to replicate it.</li>
+            <li>Briefed leadership on 2026 NASBA updates and readiness gaps for California SB 513.</li>
+          </ul>
+        </div>
+        <ul class="tags"><li>Articulate Storyline and Rise</li><li>SCORM 2004</li><li>Assessment design</li><li>CPE compliance</li><li>Vendor coaching</li></ul>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <h3>Learning Pathways platform</h3>
+        <span class="when">2025 to 2026</span>
+        <span class="gist">A free career tool for government finance professionals, from competency models to launch analytics.</span>
+      </summary>
+      <div class="body">
+        <div class="col">
+          <h4>What I did</h4>
+          <ul>
+            <li>Supported pathway design across accounting, budgeting, debt management, and more, working with subject matter experts and an external platform vendor.</li>
+            <li>Wrote scripts and produced the introductory and budgeting videos, and built quick-reference infographics for the conference booth.</li>
+            <li>Authored the analytics executive report and a marketing strategy for on-demand courses and pathways.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Results</h4>
+          <ul>
+            <li>674 signups and 30,700 page views over 12 months, with 245 courses and books available on the platform.</li>
+            <li>A live webinar lifted platform views by 732% and visitors by 384%, with 664 live attendees.</li>
+          </ul>
+        </div>
+        <ul class="tags"><li>Competency mapping</li><li>Web analytics</li><li>Video scripting</li><li>Launch marketing</li></ul>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <h3>Video production ecosystem</h3>
+        <span class="when">2026</span>
+        <span class="gist">A shared library and toolset that replaced one-off video decisions with reusable standards.</span>
+      </summary>
+      <div class="body">
+        <div class="col">
+          <h4>What I built</h4>
+          <ul>
+            <li>A playbook of 128 branded video formats across 18 collections, each with a plain-language name, use case, and adult-learning research anchor.</li>
+            <li>A camera and production catalog covering angles, shots, lighting, lenses, and studio floor plans.</li>
+            <li>A 3D shot selection tool that builds a storyboard shot list without camera expertise.</li>
+            <li>A local marking tool that burns in compliance overlays and exports to Camtasia and Premiere.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Business case</h4>
+          <p>I wrote the leadership case for treating video as a reusable, brand-protecting asset rather than a recurring cost center, at effectively no added cost.</p>
+          <p>I also coordinated a multi-camera studio shoot for the leadership course, from pre-production checklist through filming schedule.</p>
+        </div>
+        <ul class="tags"><li>Video strategy</li><li>Camtasia and Premiere</li><li>Storyboarding</li><li>Business case writing</li></ul>
+      </div>
+    </details>
+
+    <h3 class="group-title">Earlier work</h3>
+    <p class="group-note">Selected projects from before GFOA.</p>
+
+    <details class="case">
+      <summary>
+        <h3>Healthcare, travel, and technology training</h3>
+        <span class="when">2021 to 2025</span>
+        <span class="gist">E-learning, facilitator guides, and content management at Amwell, Priceline, TeleTracking, and Lurie Children's Hospital.</span>
+      </summary>
+      <div class="body">
+        <div class="col">
+          <h4>Amwell, 2021 to 2023</h4>
+          <p>I supported learning strategy aligned with business priorities, adapted process documentation into training experiences in Articulate Rise, and helped shape how custom training requests from internal and external stakeholders were handled.</p>
+          <h4>Priceline, 2024</h4>
+          <p>I wrote facilitator guides for complex customer service workflows and built scenario-based interactive modules, partnering with subject matter experts and leaders on strategy and evaluation.</p>
+        </div>
+        <div class="col">
+          <h4>TeleTracking, 2024 to 2025</h4>
+          <p>I designed healthcare workflow modules in Articulate Storyline and Rise with interactive video, set up metadata practices in Xyleme, and guided production of instructional videos.</p>
+          <h4>Lurie Children's Hospital, 2024</h4>
+          <p>I converted conventional clinical training into interactive e-learning in Storyline and Rise, and ran needs assessments across clinical and operational departments.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <h3>Business intelligence and training operations at Kaiser Permanente</h3>
+        <span class="when">2017 to 2021</span>
+        <span class="gist">Three roles that moved from training development into analytics and workflow automation.</span>
+      </summary>
+      <div class="body">
+        <div class="col">
+          <h4>What I did</h4>
+          <ul>
+            <li>Developed training with mixed media and helped rebuild a departmental SharePoint training portal using Power Apps, Power BI, and SharePoint Online.</li>
+            <li>Led initiatives supporting operational performance, including knowledge management models that created annual savings of $500,000 or more.</li>
+            <li>Helped build analytical data systems and workflow automation with Microsoft Power Platform and OData queries.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Also</h4>
+          <ul>
+            <li>Built e-learning in Articulate, designed storyboards, and converted instructor-led training to virtual delivery.</li>
+            <li>Identified information gaps in business processes and workflows and brought them to the right leaders.</li>
+          </ul>
+        </div>
+        <ul class="tags"><li>Power Platform</li><li>Power BI</li><li>Tableau</li><li>SharePoint</li><li>Knowledge management</li></ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="approach" aria-labelledby="approach-h">
+  <div class="wrap">
+    <h2 id="approach-h">How I work</h2>
+    <p class="section-intro">I treat education as something to be measured and improved, with the same discipline as any other product.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Start from the behavior that needs to change</h3>
+        <p>I begin with what learners need to do differently, then pick the format. That has meant instructor-led sessions, SCORM courses, short video, job aids, and interactive HTML, sometimes together.</p>
+        <h3>Measure what learners say, in their own words</h3>
+        <p>Scores tell you where to look. Comments tell you what to fix. I build the analysis so both reach decision makers in a form they can use.</p>
+      </div>
+      <div>
+        <h3>Make it reusable</h3>
+        <p>Playbooks, templates, runbooks, and documented pipelines mean the next course, report, or video starts further along. I also coach subject matter experts on writing objectives and designing for adult learners.</p>
+        <h3>Work across teams</h3>
+        <p>I partner with subject matter experts, marketing, technical teams, vendors, and executives, and I write the business cases that get the work approved.</p>
+      </div>
+    </div>
+
+    <dl class="skills" style="margin-top:2.5rem">
+      <dt>Learning design and strategy</dt>
+      <dd>ADDIE, proficiency-based learning, adult learning theory (Knowles), Mayer's multimedia principles, ARCS, facilitator guides, storyboarding, scenario-based design, learning objectives, SME coaching.</dd>
+      <dt>Evaluation and change</dt>
+      <dd>Kirkpatrick, LTEM, Brinkerhoff, CSAT benchmarking, Kotter, ADKAR, Bridges transition model.</dd>
+      <dt>Authoring and media</dt>
+      <dd>Articulate Storyline and Rise, Adobe Captivate, Lectora, Camtasia, Adobe Premiere, Vyond, MadCap Flare, Claro, H5P, HTML, CSS, and JavaScript.</dd>
+      <dt>Platforms and standards</dt>
+      <dd>SCORM 1.2 and 2004, xAPI, Cadmium Elevate, iMIS, Xyleme, SharePoint, NetExam, SumTotal, and Taleo LMS experience.</dd>
+      <dt>Analytics and automation</dt>
+      <dd>Python, REST APIs and Postman, Excel, Tableau, Power BI, Power Automate, Power Apps, Chart.js dashboards.</dd>
+      <dt>AI-assisted workflows</dt>
+      <dd>Microsoft Copilot, ChatGPT, and Claude for analysis, prompt libraries, localization, and content updates, plus membership on GFOA's AI committee.</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="experience" aria-labelledby="exp-h">
+  <div class="wrap">
+    <h2 id="exp-h">Experience</h2>
+    <p class="section-intro">My complete work history, most recent first.</p>
+
+    <div class="job"><div class="dates">June 2024 to present</div><div><h3>Senior Instructional Designer / Learning Strategist</h3><span class="org">GFOA</span><p>Learning strategy, course design, evaluation analytics, and e-learning development for the Education Center.</p></div></div>
+    <div class="job"><div class="dates">August 2024 to March 2025</div><div><h3>Instructional Designer / Content Management Consultant</h3><span class="org">TeleTracking</span><p>Healthcare e-learning in Storyline and Rise, Xyleme metadata practices, and instructional video.</p></div></div>
+    <div class="job"><div class="dates">March 2024 to November 2024</div><div><h3>Instructional Designer / Learning Strategist</h3><span class="org">Priceline</span><p>Facilitator guides and scenario-based modules for customer service workflows.</p></div></div>
+    <div class="job"><div class="dates">January 2024 to April 2024</div><div><h3>Instructional Designer / Learning Strategist</h3><span class="org">Lurie Children's Hospital</span><p>Interactive clinical e-learning and instructional needs assessments.</p></div></div>
+    <div class="job"><div class="dates">July 2021 to October 2023</div><div><h3>Instructional Designer / Learning Manager</h3><span class="org">Amwell</span><p>Learning strategy support, Articulate Rise courses, and custom training for internal and external stakeholders.</p></div></div>
+    <div class="job"><div class="dates">November 2020 to July 2021</div><div><h3>Business Consultant, Senior Analyst</h3><span class="org">Kaiser Permanente</span><p>Training design, e-learning in Articulate, conversion of instructor-led training to virtual, and workflow automation with Power Platform.</p></div></div>
+    <div class="job"><div class="dates">September 2018 to November 2020</div><div><h3>Lead Business Intelligence</h3><span class="org">Kaiser Permanente</span><p>Led initiatives supporting operational performance, knowledge management models, and analytical data systems.</p></div></div>
+    <div class="job"><div class="dates">October 2017 to September 2018</div><div><h3>Training Specialist (Consultant)</h3><span class="org">Kaiser Permanente</span><p>Mixed-media training development and redevelopment of a departmental SharePoint training portal.</p></div></div>
+    <div class="job"><div class="dates">April 2017 to August 2017</div><div><h3>Lead Instructional Designer (Consultant)</h3><span class="org">Communities in Schools</span><p>Edited and updated e-learning courses in the Claro authoring tool and developed online training with graphics, animation, audio, video, and job aids. Fully remote.</p></div></div>
+    <div class="job"><div class="dates">September 2016 to April 2017</div><div><h3>Training Specialist II</h3><span class="org">Restaurant Brands International</span><p>Blended learning for restaurant teams: job aids, e-learning, video, instructor-led, performance support, and mobile support. Scripts, storyboards, and media assets, with MadCap Flare for technical content.</p></div></div>
+    <div class="job"><div class="dates">October 2012 to July 2017</div><div><h3>Family Trainer (part-time, concurrent)</h3><span class="org">Power My Learning</span><p>Trained families and students on basic computer skills using the program's methods and procedures.</p></div></div>
+
+    <h3 class="group-title">Consulting roles, 2011 to 2016</h3>
+    <div class="job"><div class="dates">June to August 2016</div><div><h3>Lead Instructional Designer</h3><span class="org">State of Georgia, Department of Administrative Services</span><p>Designed and built online courses in Articulate Studio and Storyline 2 with division directors, subject matter experts, and the Director of Enterprise Learning.</p></div></div>
+    <div class="job"><div class="dates">May to June 2016</div><div><h3>Instructional Designer</h3><span class="org">ABB</span><p>Recommended tools and course structure using Adobe Captivate 8, with MadCap Flare for technical materials.</p></div></div>
+    <div class="job"><div class="dates">December 2015 to March 2016</div><div><h3>Lead Graphic Designer</h3><span class="org">Karna, LLC</span><p>Graphic design and visual development for a colorectal cancer screening program manual using InDesign and Photoshop.</p></div></div>
+    <div class="job"><div class="dates">December 2015 to February 2016</div><div><h3>Instructional Designer</h3><span class="org">Georgia United Credit Union</span><p>Developed and converted compliance training materials for teller team members.</p></div></div>
+    <div class="job"><div class="dates">May to December 2015</div><div><h3>Instructional Designer</h3><span class="org">Delta Airlines</span><p>Converted a worldwide operations program into e-learning in Captivate 8 and created training standards and templates.</p></div></div>
+    <div class="job"><div class="dates">August 2014 to March 2015</div><div><h3>Instructional Designer</h3><span class="org">MediCity</span><p>Built SCORM 1.2 training in Captivate, Lectora, and Storyline for NetExam, set course standards and interfaces, and turned Camtasia recordings into video tutorials.</p></div></div>
+    <div class="job"><div class="dates">June 2012 to August 2014</div><div><h3>E-Learning Developer</h3><span class="org">Children's Healthcare of Atlanta</span><p>Mobile training prototypes in HTML5, SCORM 1.2 courses for SumTotal, and Epic software simulation training, built with subject matter experts using proficiency-based learning and ADDIE.</p></div></div>
+    <div class="job"><div class="dates">December 2011 to June 2012</div><div><h3>E-Learning Developer (Consultant)</h3><span class="org">Volt Management, for Barnes Distribution</span><p>Converted PowerPoint into SCORM 1.2 courses for Taleo in Captivate, wrote soft-skills content with subject matter experts, and made LMS video tutorials.</p></div></div>
+    <div class="job"><div class="dates">August to October 2011</div><div><h3>Academic Technology Assistant</h3><span class="org">Stanford University</span><p>Worked with IHUM fellows to incorporate and support technology in the classroom, managed and supervised multimedia projects for the September Studies program, and maintained and troubleshot computers and multimedia equipment.</p></div></div>
+
+    <h3 class="group-title">Teaching and school technology, 2008 to 2011</h3>
+    <div class="job"><div class="dates">August 2009 to August 2011</div><div><h3>Technology Coordinator / Instructor</h3><span class="org">Lawrence Lower School</span><p>Trained teachers on appropriate classroom technologies, created presentations for organizational training and development goals, worked with technical support contacts on repairs, and helped determine when new equipment was needed.</p></div></div>
+    <div class="job"><div class="dates">June to July 2009</div><div><h3>Graphic Design Instructor</h3><span class="org">University Schools, REACH Program</span><p>Taught and supported graphic design coursework in a one-month summer program, using communication skills and technology to keep the learning environment engaging.</p></div></div>
+    <div class="job"><div class="dates">August 2008 to August 2009</div><div><h3>Technology Instructor</h3><span class="org">Lawrence Upper School</span><p>Taught coursework in graphic design, computer applications, web design, and video editing. Supported students with moderate to severe learning disabilities and used rubric-based grading. Transferred to Lawrence Lower School.</p></div></div>
+    <div class="job"><div class="dates">July 2008 to October 2009</div><div><h3>Computer Lab Assistant (part-time, concurrent)</h3><span class="org">Cuyahoga Community College West</span><p>Part-time support for the Technology Learning Center: helped patrons use the computer center, operated audio and video equipment, and troubleshot and reported on computer platforms.</p></div></div>
+  </div>
+</section>
+
+<section id="learning" aria-labelledby="learning-h">
+  <div class="wrap">
+    <h2 id="learning-h">Always a student</h2>
+    <p class="section-intro">Alongside formal certificates, I have completed more than 40 LinkedIn Learning courses and learning paths since 2021. The groups below show where I have invested.</p>
+
+    <details class="cert-group" open>
+      <summary>Instructional design and learning science</summary>
+      <ul>
+        <li>Build Your Skills as an Instructional Designer <span>(2021)</span></li>
+        <li>Instructional Design: Models of ID <span>(2021)</span></li>
+        <li>Instructional Design: Adult Learners <span>(2021)</span></li>
+        <li>Instructional Design: Storyboarding <span>(2021)</span></li>
+        <li>Instructional Design: Working with SMEs <span>(2021)</span></li>
+        <li>Agile Instructional Design <span>(2021)</span></li>
+        <li>Scrollytelling: Creating a One-Page Web Experience <span>(2021)</span></li>
+        <li>Teaching Techniques: Blended Learning <span>(2022)</span></li>
+        <li>Converting Face-to-Face Training into Digital Learning <span>(2023)</span></li>
+        <li>Tips for Learner Engagement <span>(2024)</span></li>
+        <li>Applying Learning Science to Training and Development <span>(2026)</span></li>
+      </ul>
+    </details>
+
+    <details class="cert-group">
+      <summary>Learning and development leadership</summary>
+      <ul>
+        <li>Advancing Your Skills as an L&amp;D Professional, learning path <span>(2022)</span></li>
+        <li>Build a Company Learning and Development Program <span>(2022)</span></li>
+        <li>Your L&amp;D Organization as a Competitive Advantage <span>(2022)</span></li>
+        <li>Foundations of Learning Management Systems <span>(2022)</span></li>
+        <li>Sales: Customer Success <span>(2022)</span></li>
+        <li>Customer Experience (CX) Trends <span>(2024)</span></li>
+        <li>The Future of Workplace Learning <span>(2025)</span></li>
+      </ul>
+    </details>
+
+    <details class="cert-group">
+      <summary>Inclusive design and psychological safety</summary>
+      <ul>
+        <li>Creating Inclusive Learning Experiences <span>(2022)</span></li>
+        <li>Skills for Inclusive Conversations <span>(2022)</span></li>
+        <li>Inclusive Tech: Breaking Bias in Tech <span>(2022)</span></li>
+        <li>Psychological Safety: Clear Blocks to Innovation, Collaboration, and Risk-Taking <span>(2023)</span></li>
+        <li>Learning to Unlearn: A Revolutionary Way to Disrupt Bias <span>(2024)</span></li>
+      </ul>
+    </details>
+
+    <details class="cert-group">
+      <summary>Technology and AI</summary>
+      <ul>
+        <li>Systems Thinking <span>(2021)</span></li>
+        <li>Streamlining Your Work with Copilot <span>(2023)</span></li>
+        <li>Generative AI: The Evolution of Thoughtful Online Search <span>(2023)</span></li>
+        <li>Python Quick Start <span>(2023)</span></li>
+        <li>Structure Vibe Coding to Save Build Time <span>(2025)</span></li>
+      </ul>
+    </details>
+
+    <details class="cert-group">
+      <summary>Leadership and communication</summary>
+      <ul>
+        <li>How to Ask Productive Questions <span>(2022)</span></li>
+        <li>How to Resolve Conflict and Boost Productivity through Deep Listening <span>(2022)</span></li>
+        <li>How to Build Credibility as a Leader <span>(2022)</span></li>
+        <li>Communicating with Executives <span>(2023)</span></li>
+        <li>Leadership Principles for Emerging Leaders with Bill George <span>(2023)</span></li>
+        <li>Bill George on Self-Awareness, Authenticity, and Leadership <span>(2023)</span></li>
+        <li>Storytelling and Content Creation to Transform Your Personal Brand <span>(2023)</span></li>
+        <li>How to Network Smarter with Dorie Clark <span>(2025)</span></li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<section id="education" aria-labelledby="edu-h">
+  <div class="wrap">
+    <h2 id="edu-h">Education and certifications</h2>
+    <ul class="edu" style="margin-top:1.5rem">
+      <li><span class="yr">2026</span><span>Artificial Intelligence and Data Science for Leaders<span class="sub">University of Chicago, completed April 2026, 34.5 instructional hours and 3.5 continuing education units</span></span></li>
+      <li><span class="yr">2026</span><span>Master Instructional Designer Certificate<span class="sub">Training 2026 Conference</span></span></li>
+      <li><span class="yr">2022</span><span>ATD Master Instructional Designer Program, Professional Certificate<span class="sub">ATD Certification Institute</span></span></li>
+      <li><span class="yr">2022</span><span>Google Project Management, Professional Certificate<span class="sub">Coursera</span></span></li>
+      <li><span class="yr">2020</span><span>Tableau Desktop Specialist Certificate<span class="sub">Tableau</span></span></li>
+      <li><span class="yr">2012</span><span>Health Information Technology (HIT) Certificate Program<span class="sub">Cuyahoga Community College, Cleveland, Ohio</span></span></li>
+      <li><span class="yr">2005</span><span>M.S., Multimedia Technology<span class="sub">California University of Pennsylvania. Additional coursework in marketing management, international business, computer-oriented research, financial management, and statistics.</span></span></li>
+      <li><span class="yr">2002</span><span>B.A., Communication/Media Technology and Arts, Music minor<span class="sub">Denison University, Granville, Ohio</span></span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<div class="close" id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>I am open to learning, education, and enablement roles where teaching craft and measurement work together. The best way to reach me is email or LinkedIn.</p>
+    <p><a href="mailto:shaundesigner@gmail.com">shaundesigner@gmail.com</a><br><a href="https://www.linkedin.com/in/sdjoneschicago" rel="noopener">linkedin.com/in/sdjoneschicago</a></p>
+  </div>
+</div>
+<footer><div class="wrap">Shaun D. Jones, Chicago, Illinois &middot; <a href="index.html" style="color:#dbe7f2">See the full learning record</a></div></footer>
+
+<script>
+(function () {
+  var weights = [0.35, 0.25, 0.20, 0.10, 0.10];
+  var inputs = [], outputs = [];
+  for (var i = 1; i <= 5; i++) {
+    inputs.push(document.getElementById('s' + i));
+    outputs.push(document.getElementById('o' + i));
+  }
+  function grade(n) {
+    if (n >= 58) return 'A';
+    if (n >= 53) return 'B';
+    if (n >= 48) return 'C';
+    if (n >= 44) return 'D';
+    return 'F';
+  }
+  function update() {
+    var total = 0;
+    inputs.forEach(function (el, idx) {
+      outputs[idx].textContent = el.value;
+      total += Number(el.value) * weights[idx];
+    });
+    var rounded = Math.round(total);
+    document.getElementById('score').textContent = rounded;
+    document.getElementById('grade').textContent = grade(rounded);
+  }
+  inputs.forEach(function (el) { el.addEventListener('input', update); });
+  update();
+})();
+</script>
+</body>
+</html>

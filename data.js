@@ -5,10 +5,10 @@
 ------------------------------------------------------------------- */
 
 window.SITE = {
-  name: "Shaun Jones",              // name as printed on the certificates
+  name: "Shaun D. Jones",              // name as printed on the certificates
   tagline: "Learning & Development · Instructional Design · AI-assisted building",
   // Leave blank to hide. Fill in before publishing.
-  contact: { email: "", linkedin: "", website: "" },
+  contact: { email: "shaundesigner@gmail.com", linkedin: "https://www.linkedin.com/in/sdjoneschicago", website: "" },
 };
 
 // Fixed colour slot per theme (validated categorical order - never re-cycled).
